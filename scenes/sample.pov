@@ -38,7 +38,7 @@ light_source {
 		 diffuse 0.700000
 		 brilliance 1.000000
 		 metallic 0.000000
-		 specular 1.000000
+		 specular 0.000000
 		 roughness 0.010000
 	 }
 }
