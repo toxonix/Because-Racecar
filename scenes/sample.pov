@@ -5,6 +5,65 @@
 global_settings{
 	 assumed_gamma 2.200000
 	 max_trace_level 5
+	 radiosity { Rad_Settings(Radiosity_Default, off, off) }
+     ambient_light rgb<1,1,1>
+}
+
+#declare camera_location = <5.346168, 3.239354, 4.176884>;
+camera{
+	 perspective
+	 location camera_location
+	 look_at <0.000000, 0.000000, 0.000000>
+}
+
+light_source
+{ <100, 200, -150>/50, 1
+    fade_distance 5 fade_power 1
+    area_light x*3, y*3, 12, 12 circular orient adaptive 0
+}
+
+light_source
+{ <150, 200, 400>/50, <.61,.61,.61>
+    fade_distance 10 fade_power 2
+    area_light x*3, y*3, 22, 12 circular orient adaptive 0
+}
+
+#declare wm_default = texture{
+	 pigment{
+		 color rgbf <1, 1, 1, 0.000000>
+	 }
+	 finish {
+		 ambient rgb <0.000000, 0.000000, 0.000000>
+		 diffuse 0.700000
+		 brilliance 0.800000
+		 metallic 0.000000
+		 specular 0.000000
+		 roughness 0.010000
+	 }
+}
+
+plane
+{ y, -0.01
+    pigment { rgb <.7,.95,1> }
+        finish { specular .5 reflection .2 }
+}
+
+plane
+{ z, -15
+    pigment { rgb <1,1,1> }
+        finish { roughness .9 }
+}
+
+plane
+{ x, -15
+    pigment { rgb <1,1,1> }
+        finish { roughness 0.9 }
+}
+
+/*
+global_settings{
+	 assumed_gamma 2.200000
+	 max_trace_level 5
 	 ambient_light rgb <0.866800, 0.866800, 0.866800>
 	 radiosity { Rad_Settings(Radiosity_Default, off, off) }
 }
@@ -42,6 +101,7 @@ light_source {
 		 roughness 0.010000
 	 }
 }
+     */
 #declare wo_0_cone2 = mesh2{
 	 vertex_vectors { 16, <-164.363520, 0.046222, 3.536000>, <-152.310033, 0.046222, 64.132972>, <-117.984605, 0.046222, 115.504605>, <-66.612972, 0.046222, 149.830033>, <-6.016000, 0.046222, 161.883520>, <54.580972, 0.046222, 149.830033>, <105.952605, 0.046222, 115.504605>, <140.278033, 0.046222, 64.132972>, <152.331520, 0.046222, 3.536000>, <140.278033, 0.046222, -57.060972>, 
 			<105.952605, 0.046222, -108.432605>, <54.580972, 0.046222, -142.758033>, <-6.016000, 0.046222, -154.811520>, <-66.612972, 0.046222, -142.758033>, <-117.984605, 0.046222, -108.432605>, <-152.310033, 0.046222, -57.060972>}
